@@ -1,0 +1,16 @@
+/*@fa-font-path: "../../fonts";*/
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/select2/dist/css/select2";
+@import "node_modules/font-awesome/scss/font-awesome";
+@import "fonts";
+@import "variables";
+@import "mixins";
+@import "partials/_buttons";
+@import "partials/_bootstrap-datetimepicker";
+@import "partials/_daterangepicker";
+@import "partials/_fileinput";
+@import "partials/_nestable";
+@import "partials/_flexslider";
+@import "partials/_UIcomponent";
+
+@import "partials/_main";

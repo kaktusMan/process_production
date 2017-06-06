@@ -1,0 +1,358 @@
+/**
+ * Nestable
+ */
+
+.dd { 
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    float: none;
+    max-width: none;
+}
+
+.dd-list { 
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dd-list .dd-list {
+    padding-left: 30px;
+}
+
+.dd-collapsed .dd-list {
+    display: none;
+}
+
+.dd-item,
+.dd-empty,
+.dd-placeholder { 
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    min-height: 20px;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.dd-item {
+    background-color: rgba(234, 234, 234, 0.53);
+    border: 1px solid #ebebeb;
+    margin: 5px 0;
+}
+
+.dd-handle { 
+    display: block;
+    margin: 0px;
+    padding: 5px 10px;
+    cursor: move;
+    max-width: calc(100% - 200px);
+}
+
+.dd-handle {
+    position: relative;
+    
+    h4 {
+        color: #323232;
+        font-family: 'robotoregular';
+    }
+    
+    p {
+        font-family: 'robotolight', sans-serif;
+        color: #323232;
+    }
+    
+    @media all and (max-width: $screen-xs-max) {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.dd-content {
+    position: absolute;
+    top: 0; 
+    right: 5px;
+    background: transparent;
+    text-align: center;
+    height: 100%;
+    padding: 10px 0;
+    width: 200px;
+    
+    .actions {
+        text-align: right;
+        
+        a {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            color: #47267a;
+
+            i {
+                font-size: 16px;
+            }
+
+            &:hover {
+                color: #ffce47;
+            }
+        }
+        
+        @media all and (max-width: $screen-xs-max) {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+    }
+    
+    .offer-switch-container {
+        position: absolute;
+        bottom: 40px;
+        right: 0;
+        
+        span.switch-label {
+            line-height: 1.5;
+            display: block;
+            float: right;
+        }
+        
+        .switch {
+            float: right;
+            margin-left: 10px;
+        }
+        
+        @media all and (max-width: $screen-xs-max) {
+            position: relative;
+            width: auto;
+            bottom: auto;
+        }
+    }
+    
+    .slider-switch-container {
+        position: absolute;
+        bottom: 10px;
+        right: 0;
+        width: 150px;
+        
+        span.switch-label {
+            line-height: 1.5;
+            display: block;
+            float: right;
+        }
+        
+        .switch {
+            float: right;
+            margin-left: 10px;
+        }
+        
+        @media all and (max-width: $screen-xs-max) {
+            position: relative;
+            width: auto;
+            bottom: auto;
+        }
+    }
+    
+    @media all and (max-width: $screen-xs-max) {
+        width: 100%;
+        position: static;
+    }
+}
+
+.dd-item > button { 
+    display: block;
+    position: relative;
+    cursor: pointer;
+    float: left;
+    width: 25px;
+    height: 20px;
+    margin: 5px 0;
+    padding: 0;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 10px;
+    outline: 0;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0px;
+        top: -5px;
+        bottom: -6px;
+        width: 1px;
+        background: #ebebeb;
+    }
+}
+
+.dd-item > button:before { 
+    content: '+';
+    display: block;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    text-indent: 0;
+}
+
+.dd-item > button[data-action="collapse"]:before { 
+    content: '-';
+}
+
+.dd-placeholder,
+.dd-empty { 
+    margin: 0px 0;
+    padding: 0;
+    min-height: 30px;
+    background: #eeeeee;
+    border: 1px dotted #ebebeb;
+}
+
+.dd-empty { 
+    border: 1px dashed #bbb;
+    min-height: 100px;
+    background-color: #e5e5e5;
+}
+
+.dd-dragel { 
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.dd-dragel > .dd-item .dd-handle,
+.dd-dragel > .dd-item .dd-content {
+    margin-top: 0;
+}
+
+.dd-dragel .dd-item {
+    @include box-shadow(2px 4px 6px 0 rgba(0,0,0,.1));
+}
+
+
+.nested-list {
+    .dd-list {
+        > .dd-item {
+            &.offer-disabled {
+                background-color: rgba(215, 34, 34, 0.25);
+                
+                .label {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    &.with-margins {
+        .dd-item .dd-handle {
+            margin: 5px 0;
+        }
+    }
+
+    &.custom-drag-button {
+        .dd-handle {
+            position: absolute !important;
+            margin: 0 !important;
+            width: 15px;
+            height: 32px;
+            padding-left: 5px;
+            padding-right: 4px;
+            cursor: pointer;
+            padding-top: 7px;
+            @include box-shadow(none);
+
+            span {
+                display: block;
+                line-height: 3px;
+                color: #cbcbcb;
+            }
+        }
+
+        .dd-content {
+            padding-left: 25px;
+        }
+
+        button + .dd-handle {
+            left: 24px;
+
+            + .dd-content {
+                padding-left: 50px;
+            }
+        }
+
+        &.drag-button-on-hover {
+            .dd-item > .dd-handle {
+                @include opacity(0);
+            }
+
+            .dd-item:hover > .dd-handle {
+                @include opacity(1);
+            }
+        }
+    }
+}
+
+.custom-handler {
+    .dd-item {
+        .dd-handle {
+            position: absolute !important;
+            margin: 0 !important;
+            width: 15px;
+            height: 32px;
+            padding-left: 5px;
+            padding-right: 4px;
+            cursor: pointer;
+            padding-top: 7px;
+            @include box-shadow(none);
+
+            span {
+                display: block;
+                line-height: 3px;
+                color: #cbcbcb;
+            }
+        }
+
+        .dd-content {
+            padding-left: 25px;
+        }
+
+        button + .dd-handle {
+            left: 24px;
+
+            + .dd-content {
+                padding-left: 50px;
+            }
+        }
+    }
+}
+
+.promotion-banner {
+    margin-right: 15px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    min-height: 100px;
+    width: 260px;
+    max-width: 100%;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    @media all and (max-width: $screen-xs-max) {
+        width: 100%;
+        margin-right: 0;
+    }
+}
