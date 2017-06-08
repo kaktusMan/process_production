@@ -11,7 +11,7 @@ class NivelDeGrupareController extends Controller
 {   
     public function index(){ 
         return view('actiuni_de_productie.nivele_grupare.index', [
-            'nivele' => NivelGrupare::with('tipuri_il')->get()
+            'nivele' => NivelGrupare::all()
         ]);
     }
 
