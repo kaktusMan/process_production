@@ -90,7 +90,7 @@ class NrGradeDeLibertateController extends Controller
 
     protected function validateRequest($request, $grad = null) 
     {	
-    	$rules = ['nume' => 'numeric'];
+    	// $rules = ['nume' => 'numeric'];
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) 

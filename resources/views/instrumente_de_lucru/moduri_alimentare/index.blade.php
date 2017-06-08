@@ -27,7 +27,7 @@
                                 <tr>
                                     <th>
                                         <span>
-                                            <span>Nume tip material</span>        
+                                            <span>Mod de alimentare</span>        
                                         </span>
                                     </th>
                                     <th class="actions">

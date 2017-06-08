@@ -102,7 +102,7 @@ class NrOreFunctPeSchimbController extends Controller
     protected function validateRequest($request, $nr_ore = null) 
     {	
     	$rules = [ 
-            'ore_nete_op' => 'numeric'
+            'ore_nete_op' => 'numeric',
             'ore_nete_il' => 'numeric'  
         ];
         $validator = Validator::make($request->all(), $rules);

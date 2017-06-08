@@ -104,12 +104,12 @@ class ComponenteRezultateController extends Controller
     protected function validateRequest($request, $componenta = null) 
     {	
     	$rules = [ 
-            'lungime_finala' => 'numeric'
-            'latime_finala' => 'numeric'
-            'inaltime_finala' => 'numeric'
-            'greutate_finala' => 'numeric'
-            'volum_brut' => 'numeric'
-            'volum_net' => 'numeric'
+            'lungime_finala' => 'numeric',
+            'latime_finala' => 'numeric',
+            'inaltime_finala' => 'numeric',
+            'greutate_finala' => 'numeric',
+            'volum_brut' => 'numeric',
+            'volum_net' => 'numeric',
             'densitate' => 'numeric'
         ];
         $validator = Validator::make($request->all(),$rules);

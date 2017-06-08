@@ -114,7 +114,7 @@ class OperatoriActualiController extends Controller
     protected function validateRequest($request, $operator = null) 
     {   
         $rules = [ 
-            'varsta' => 'integer'
+            'varsta' => 'integer',
             'salar_brut' => 'numeric',
             'val_bonuri_de_masa' => 'numeric'
 
