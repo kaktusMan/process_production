@@ -5,6 +5,7 @@ namespace App\Http\Controllers\MateriiPrime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Validator;
+use App\Models\Tools;
 use App\Models\MateriiPrime\Caracteristica;
 
 class CaracteristiciTehnRelevController extends Controller
@@ -19,6 +20,7 @@ class CaracteristiciTehnRelevController extends Controller
     {        
         return view('materii_prime.caracteristici_tehnice.add_edit', [
             'caracteristica' => new Caracteristica(),
+            'caracteristici_relevante' => Tools::car_tehn_relev_pt_mat_prime(),
             'form_title' => 'Creare caracteristici tehnice relevante pentru m.p',
             'form_route' => route('caract_materii::store')
         ]);
@@ -31,13 +33,7 @@ class CaracteristiciTehnRelevController extends Controller
 
         $caracteristica = new Caracteristica();
 
-        $caracteristica->lungime_finala = $request->input('lungime_finala');
-        $caracteristica->latime_finala = $request->input('latime_finala');
-        $caracteristica->inaltime_finala = $request->input('inaltime_finala');
-        $caracteristica->greutate_finala = $request->input('greutate_finala');
-        $caracteristica->volum_brut = $request->input('volum_brut');
-        $caracteristica->volum_net = $request->input('volum_net');
-        $caracteristica->densitate = $request->input('densitate');
+        $caracteristica->nume = $request->input('nume'); 
 
         if ($caracteristica->save()) 
         {   
@@ -55,6 +51,7 @@ class CaracteristiciTehnRelevController extends Controller
 
         return view('materii_prime.caracteristici_tehnice.add_edit', [
             'caracteristica' => $caracteristica, 
+            'caracteristici_relevante' => Tools::car_tehn_relev_pt_mat_prime(),
             'form_title' => 'Editare caracteristici tehnice relevante pentru m.p',
             'form_route' => route('caract_materii::update', ['id' => $caracteristica->id])
         ]);
@@ -67,13 +64,7 @@ class CaracteristiciTehnRelevController extends Controller
 
         if (is_null($caracteristica)) { return redirect(route('caract_materii::list'))->with('alert-danger', 'Caracteristica nu exista'); }
 
-        $caracteristica->lungime_finala = $request->input('lungime_finala');
-        $caracteristica->latime_finala = $request->input('latime_finala');
-        $caracteristica->inaltime_finala = $request->input('inaltime_finala');
-        $caracteristica->greutate_finala = $request->input('greutate_finala');
-        $caracteristica->volum_brut = $request->input('volum_brut');
-        $caracteristica->volum_net = $request->input('volum_net');
-        $caracteristica->densitate = $request->input('densitate');
+        $caracteristica->nume = $request->input('nume'); 
 
         if ($caracteristica->save()) 
         {   

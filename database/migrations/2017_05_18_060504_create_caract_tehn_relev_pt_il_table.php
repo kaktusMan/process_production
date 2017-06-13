@@ -15,11 +15,7 @@ class CreateCaractTehnRelevPtIlTable extends Migration
     {
         Schema::create('carecteristici_tehn_pt_il', function (Blueprint $t) {
             $t->increments('id')->unsigned();
-            $t->float('lungime_maxima');
-            $t->float('latime_maxima');
-            $t->float('inaltime_maxima');
-            $t->float('volum');
-            $t->float('greutate');
+            $t->string('nume'); 
             $t->timestamps();
             $t->softDeletes();   
         });

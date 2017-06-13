@@ -294,9 +294,9 @@ Route::group([
     	Route::get('/', 'ComponenteRezultateController@index')->name('list');
         Route::get('creare', 'ComponenteRezultateController@create')->name('create');
         Route::post('/', 'ComponenteRezultateController@store')->name('store');
-        Route::get('{componente}', 'ComponenteRezultateController@edit')->name('edit');
-        Route::post('{componente}', 'ComponenteRezultateController@update')->name('update');
-        Route::post('{componente}/stergere', 'ComponenteRezultateController@delete')->name('delete'); 
+        Route::get('{componenta}', 'ComponenteRezultateController@edit')->name('edit');
+        Route::post('{componenta}', 'ComponenteRezultateController@update')->name('update');
+        Route::post('{componenta}/stergere', 'ComponenteRezultateController@delete')->name('delete'); 
 });
 
 Route::group([

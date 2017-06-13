@@ -5,6 +5,7 @@ namespace App\Http\Controllers\InstrumenteDeLucru;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Validator;
+use App\Models\Tools;
 use App\Models\InstrumenteDeLucru\CaracteristicaTehnica;
 
 class CaracteristiciTehniceController extends Controller
@@ -21,6 +22,7 @@ class CaracteristiciTehniceController extends Controller
     {        
         return view('instrumente_de_lucru.caracteristici_tehnice.add_edit', [
             'caracteristica' => new CaracteristicaTehnica(),
+            'caracteristici_relevante' => Tools::car_tehn_relev_pt_il(),
             'form_title' => 'Creare caracteristici tehnice relevante pentru i.l',
             'form_route' => route('caracteristici::store')
         ]);
@@ -33,11 +35,7 @@ class CaracteristiciTehniceController extends Controller
 
         $caracteristica = new CaracteristicaTehnica();
 
-        $caracteristica->lungime_maxima = $request->input('lungime_maxima');
-        $caracteristica->latime_maxima = $request->input('latime_maxima');
-        $caracteristica->inaltime_maxima = $request->input('inaltime_maxima');
-        $caracteristica->volum = $request->input('volum');
-        $caracteristica->greutate = $request->input('greutate');
+        $caracteristica->nume = $request->input('nume'); 
 
 
         if ($caracteristica->save()) 
@@ -56,6 +54,7 @@ class CaracteristiciTehniceController extends Controller
 
         return view('instrumente_de_lucru.caracteristici_tehnice.add_edit', [
             'caracteristica' => $caracteristica, 
+            'caracteristici_relevante' => Tools::car_tehn_relev_pt_il(),
             'form_title' => 'Editare caracteristici tehnice relevante pentru i.l',
             'form_route' => route('caracteristici::update', ['id' => $caracteristica->id])
         ]);
@@ -68,11 +67,7 @@ class CaracteristiciTehniceController extends Controller
 
         if (is_null($caracteristica)) { return redirect(route('caracteristici::list'))->with('alert-danger', 'Caracteristica nu exista'); }
 
-        $caracteristica->lungime_maxima = $request->input('lungime_maxima');
-        $caracteristica->latime_maxima = $request->input('latime_maxima');
-        $caracteristica->inaltime_maxima = $request->input('inaltime_maxima');
-        $caracteristica->volum = $request->input('volum');
-        $caracteristica->greutate = $request->input('greutate');
+        $caracteristica->nume = $request->input('nume'); 
 
         if ($caracteristica->save()) 
         {   

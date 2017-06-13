@@ -17,8 +17,6 @@ class CreateActiuniProductieTable extends Migration
             $t->increments('id')->unsigned();
             $t->integer('tipuri_id')->unsigned()->default(0)->nullable()->comment('tipuri material pt realiz act');
             $t->string('nume');
-            $t->string('tranzitie_intre_op'); 
-            $t->string('stationare_op');
             $t->timestamps();
             $t->softDeletes();   
         });

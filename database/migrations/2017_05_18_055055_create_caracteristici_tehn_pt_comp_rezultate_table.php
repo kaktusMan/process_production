@@ -15,14 +15,7 @@ class CreateCaracteristiciTehnPtCompRezultateTable extends Migration
     {
         Schema::create('carecteristici_tehn_pt_comp_rezultate', function (Blueprint $t) {
             $t->increments('id')->unsigned();
-            $t->float('lungime_finala');
-            $t->float('latime_finala');
-            $t->float('inaltime_finala');
-            $t->float('greutate_finala');
-            $t->float('volum_brut');
-            $t->float('volum_net');
-            $t->float('densitate');
-            $t->float('grad_rugozitate');
+            $t->string('nume'); 
             $t->timestamps();
             $t->softDeletes();   
         });

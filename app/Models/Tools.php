@@ -7,16 +7,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tools extends Model
 {
-	const Afirmativ = 'Da';
-    const Negativ = 'Nu';
-
-	public static function options() 
-    {
-        return collect([
-            self::Afirmativ => 'Da',
-            self::Negativ => 'Nu',
-        ]);
-    }
 
     const C ='Căsătorit/ă';
     const D = 'Divorțat/ă';
@@ -57,5 +47,43 @@ class Tools extends Model
             3 => '3',
         ]);
     }
+
+
+    public static function car_tehn_relev_pt_comp_rez(){
+        return collect([
+             'Lungime finala'  => 'Lungime finala',
+             'Latime finala'  => 'Latime finala',
+             'Inaltime finala'  => 'Inaltime finala',
+             'Volum brut'  => 'Volum brut',
+             'Volum net'  => 'Volum net',
+             'Greutate finala'  => 'Greutate finala',
+             'Densitate'  => 'Densitate',
+             'Gradul de rugozitate a suprafetei'  => 'Gradul de rugozitate a suprafetei',
+        ]);
+    }
+
+    public static function car_tehn_relev_pt_mat_prime(){
+        return collect([
+             'Lungime finala'  => 'Lungime finala',
+             'Latime finala'  => 'Latime finala',
+             'Inaltime finala'  => 'Inaltime finala',
+             'Volum brut'  => 'Volum brut',
+             'Volum net'  => 'Volum net',
+             'Greutate finala'  => 'Greutate finala',
+             'Densitate'  => 'Densitate', 
+        ]);
+    }
+
+    public static function car_tehn_relev_pt_il(){
+        return collect([
+             'Lungime maxima'  => 'Lungime maxima',
+             'Latime maxima'  => 'Latime maxima',
+             'Inaltime maxima'  => 'Inaltime maxima',
+             'Volum'  => 'Volum',
+             'Greutate'  => 'Greutate',
+        ]);
+    }
+
+
 }
 

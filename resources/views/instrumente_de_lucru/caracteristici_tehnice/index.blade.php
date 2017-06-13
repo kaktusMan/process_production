@@ -27,27 +27,7 @@
                                 <tr>
                                     <th>
                                         <span>
-                                            <span>Lungime maxima</span>        
-                                        </span>
-                                    </th>
-                                    <th>
-                                        <span>
-                                            <span>Latime maxima</span>        
-                                        </span>
-                                    </th>
-                                    <th>
-                                        <span>
-                                            <span>Inaltime maxima</span>        
-                                        </span>
-                                    </th>
-                                    <th>
-                                        <span>
-                                            <span>Volum</span>        
-                                        </span>
-                                    </th>
-                                    <th>
-                                        <span>
-                                            <span>Greutate</span>        
+                                            <span>Nume caracteristica tehnica</span>        
                                         </span>
                                     </th>
                                     <th class="actions">
@@ -61,11 +41,7 @@
                                 @if ($caracteristici->count())
                                 @foreach ($caracteristici as $caracteristica)
                                 <tr>                                    
-                                    <td>{{ $caracteristica->lungime_maxima }}</td>
-                                    <td>{{ $caracteristica->latime_maxima }}</td>
-                                    <td>{{ $caracteristica->inaltime_maxima }}</td>
-                                    <td>{{ $caracteristica->volum }}</td>
-                                    <td>{{ $caracteristica->greutate }}</td>
+                                    <td>{{ $caracteristica->nume }}</td> 
                                     <td class="actions">
                                         <a href="{{ route('caracteristici::edit',['id' =>$caracteristica->id]) }}" alt="Editează" title="Editează"><i class="fa fa-pencil-square-o"></i>&nbsp;</a>
                                         <a href="#" alt="Sterge" title="Sterge" data-toggle="modal" data-target=".delete-modal-{{ $caracteristica->id }}"><i class="fa fa-trash"></i>&nbsp;</a>                           
@@ -88,7 +64,3 @@
 </div>
 
 @endsection                  
-
-
-
-

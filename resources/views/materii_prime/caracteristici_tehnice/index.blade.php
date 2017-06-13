@@ -7,7 +7,7 @@
         <div class="dashboard-container">
             <div class="row">
                 <div class="container-title clearfix">
-                    <h2>Caracteristici tehnice relevante pentru materiile prime</h2>                   
+                    <h2>Caracteristici tehnice relevante pentru materiile prime cu care se alim. I.L</h2>                   
                     <div class="dashboard-buttons">
                         <a href="{{ route('caract_materii::create') }}" class="btn btn-purple"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Adauga caracteristica</a>                        
                     </div>
@@ -27,29 +27,9 @@
                                 <tr>
                                     <th>
                                         <span>
-                                            <span>Lungime finala</span>        
+                                            <span>Nume caracteristica tehnica</span>        
                                         </span>
-                                    </th>
-                                    <th>
-                                        <span>
-                                            <span>Latime finala</span>        
-                                        </span>
-                                    </th>
-                                    <th>
-                                        <span>
-                                            <span>Inaltime finala</span>        
-                                        </span>
-                                    </th>
-                                    <th>
-                                        <span>
-                                            <span>Densitate</span>        
-                                        </span>
-                                    </th>
-                                    <th>
-                                        <span>
-                                            <span>Greutate finala</span>        
-                                        </span>
-                                    </th>
+                                    </th> 
                                     <th class="actions">
                                         <span>
                                             <span>Actiuni</span>
@@ -61,11 +41,7 @@
                                 @if ($caracteristici->count())
                                 @foreach ($caracteristici as $caracteristica)
                                 <tr>                                    
-                                    <td>{{ $caracteristica->lungime_finala }}</td>
-                                    <td>{{ $caracteristica->latime_finala }}</td>
-                                    <td>{{ $caracteristica->inaltime_finala }}</td>
-                                    <td>{{ $caracteristica->densitate }}</td>
-                                    <td>{{ $caracteristica->greutate_finala }}</td>
+                                    <td>{{ $caracteristica->nume }}</td> 
                                     <td class="actions">
                                         <a href="{{ route('caract_materii::edit',['id' =>$caracteristica->id]) }}" alt="Editează" title="Editează"><i class="fa fa-pencil-square-o"></i>&nbsp;</a>
                                         <a href="#" alt="Sterge" title="Sterge" data-toggle="modal" data-target=".delete-modal-{{ $caracteristica->id }}"><i class="fa fa-trash"></i>&nbsp;</a>                           

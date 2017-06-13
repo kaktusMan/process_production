@@ -41,7 +41,7 @@
                                 @if ($grade->count())
                                 @foreach ($grade as $grad)
                                 <tr>                                    
-                                    <td>{{ $grad->nume }}</td>
+                                    <td>{{ @$grad->nume }}</td>
                                     <td class="actions">
                                         <a href="{{ route('nr_grade::edit',['id' =>$grad->id]) }}" alt="Editează" title="Editează"><i class="fa fa-pencil-square-o"></i>&nbsp;</a>
                                         <a href="#" alt="Sterge" title="Sterge" data-toggle="modal" data-target=".delete-modal-{{ $grad->id }}"><i class="fa fa-trash"></i>&nbsp;</a>                           

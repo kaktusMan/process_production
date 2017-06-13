@@ -6,13 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Validator;
 use App\Models\ActiuniProductie\Actiune;
-use App\Models\Tools;
 use App\Models\InstrumenteDeLucru\TipMaterial;
 
 class ActiuniProductieController extends Controller
 {   
-    public function index(){ 
-        // return Actiune::with('modalitati', 'tipuri')->get();
+    public function index(){  
         return view('actiuni_de_productie.actiuni.index', [
             'operatii' => Actiune::with('tipuri')->get()
         ]);
@@ -22,7 +20,6 @@ class ActiuniProductieController extends Controller
     {       
         return view('actiuni_de_productie.actiuni.add_edit', [
             'actiuni' => new Actiune(),
-            'optiuni' => Tools::options(),
             'form_title' => 'Creare acțiune de producție',
             'tipuri_materiale' => TipMaterial::getOptionsArray(),
             'form_route' => route('actiuni::store')
@@ -34,9 +31,6 @@ class ActiuniProductieController extends Controller
         $actiuni = new Actiune();
 
         $actiuni->nume = $request->input('nume');
-        $actiuni->tranzitie_intre_op = $request->input('tranzitie_intre_op');
-        $actiuni->stationare_op = $request->input('stationare_op');
-        $actiuni->stationare_op = $request->input('stationare_op');
         $actiuni->tipuri()->associate($request->input('tipuri_id'));
 
         if ($actiuni->save()) 
@@ -55,7 +49,6 @@ class ActiuniProductieController extends Controller
 
         return view('actiuni_de_productie.actiuni.add_edit', [
             'actiuni' => $actiuni,
-            'optiuni' => Tools::options(),
             'tipuri_materiale' => TipMaterial::getOptionsArray(),
             'form_title' => 'Editare acțiune de producție',
             'form_route' => route('actiuni::update', ['id' => $actiuni->id])
@@ -67,9 +60,6 @@ class ActiuniProductieController extends Controller
         if (is_null($actiuni)) { return redirect(route('actiuni::list'))->with('alert-danger', 'Actiunea nu exista'); }
 
         $actiuni->nume = $request->input('nume');
-        $actiuni->tranzitie_intre_op = $request->input('tranzitie_intre_op');
-        $actiuni->stationare_op = $request->input('stationare_op');
-        $actiuni->stationare_op = $request->input('stationare_op');
         $actiuni->tipuri()->associate($request->input('tipuri_id'));
 
         if ($actiuni->save()) 

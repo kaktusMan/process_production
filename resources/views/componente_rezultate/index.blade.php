@@ -27,27 +27,7 @@
                                 <tr>
                                     <th>
                                         <span>
-                                            <span>Lungime finala</span>        
-                                        </span>
-                                    </th>
-                                    <th>
-                                        <span>
-                                            <span>Latime finala</span>        
-                                        </span>
-                                    </th>
-                                    <th>
-                                        <span>
-                                            <span>Inaltime finala</span>        
-                                        </span>
-                                    </th>
-                                    <th>
-                                        <span>
-                                            <span>Densitate</span>        
-                                        </span>
-                                    </th>
-                                    <th>
-                                        <span>
-                                            <span>Greutate finala</span>        
+                                            <span>Nume caracteristica tehnica</span>        
                                         </span>
                                     </th>
                                     <th class="actions">
@@ -61,11 +41,7 @@
                                 @if ($componente->count())
                                 @foreach ($componente as $componenta)
                                 <tr>                                    
-                                    <td>{{ $componenta->lungime_finala }}</td>
-                                    <td>{{ $componenta->latime_finala }}</td>
-                                    <td>{{ $componenta->inaltime_finala }}</td>
-                                    <td>{{ $componenta->densitate }}</td>
-                                    <td>{{ $componenta->greutate_finala }}</td>
+                                    <td>{{ $componenta->nume }}</td>
                                     <td class="actions">
                                         <a href="{{ route('componente::edit',['id' =>$componenta->id]) }}" alt="Editează" title="Editează"><i class="fa fa-pencil-square-o"></i>&nbsp;</a>
                                         <a href="#" alt="Sterge" title="Sterge" data-toggle="modal" data-target=".delete-modal-{{ $componenta->id }}"><i class="fa fa-trash"></i>&nbsp;</a>                           
