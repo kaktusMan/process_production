@@ -5,7 +5,7 @@
     <div class="dashboard-container">
         <div class="row">
             <div class="container-title clearfix">
-                <h2>Struncturarea Procesului de Productie</h2>
+                <h2>Structurarea Procesului de Productie</h2>
             </div>
         </div>
 
