@@ -30,12 +30,7 @@
                                         <span>
                                             <span>Nume modalitate</span>        
                                         </span>
-                                    </th> 
-                                    <th>
-                                        <span>
-                                            <span>Actiune de productie</span>        
-                                        </span>
-                                    </th> 
+                                    </th>   
                                     <th class="actions">
                                         <span>
                                             <span>Actiuni</span>
@@ -47,8 +42,7 @@
                                 @if ($modalitati->count())
                                 @foreach ($modalitati as $modalitate)
                                 <tr>                                    
-                                    <td>{{ $modalitate->nume }}</td>
-                                    <td>{{ @$modalitate->actiuniPr->nume }}</td>
+                                    <td>{{ $modalitate->nume }}</td> 
 
                                     <td class="actions">
                                         <a href="{{ route('modalitati::edit',['id' =>$modalitate->id]) }}" alt="Editează" title="Editează"><i class="fa fa-pencil-square-o"></i>&nbsp;</a>

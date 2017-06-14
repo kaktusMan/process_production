@@ -13,10 +13,6 @@ class Flux extends Model
 
 	protected $table = 'fluxuri_de_lucru';
 
-	public function fl_prp()
-    {
-        return $this->hasMany('App\Models\Componente\ProcesProductie');
-    }
 
     public function fl_il_optimizate()
     {

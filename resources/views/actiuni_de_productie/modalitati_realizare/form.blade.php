@@ -21,21 +21,7 @@
                     <strong>{{ $errors->first('nume') }}</strong>
                 </span>
                 @endif              
-            </div> 
-            <div class="form-group {{ $errors->has('id_actiune') ? ' has-error' : '' }}">
-                    <label>Actiune de productie</label>
-                    <select name="id_actiune" id="id_actiune"  class="custom-select validate[required]" data-search="5" tabindex="8">
-                        <option value="">Setare actiunea de productie</option>
-                        @foreach ($tipuri_actiuni as $index => $value)
-                        <option <?php echo $index == $modalitate->id_actiune ? 'selected="selected"' : ''; ?> value="{{ $index }}">{{ $value }}</option>
-                        @endforeach
-                    </select>
-                    @if ($errors->has('id_actiune'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('id_actiune') }}</strong>
-                    </span>
-                    @endif
-                </div>
+            </div>  
             <button type="submit" class="btn btn-purple submit has-icon pull-right">
                 <i class="fa fa-plus" aria-hidden="true"></i> &nbsp;Salvare 
             </button>

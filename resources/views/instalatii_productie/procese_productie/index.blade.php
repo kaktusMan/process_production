@@ -37,7 +37,7 @@
                                     </th> 
                                     <th>
                                         <span>
-                                            <span>Flux aferent</span>        
+                                            <span>Flux de lucru</span>        
                                         </span>
                                     </th>
                                     <th class="actions">

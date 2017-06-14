@@ -43,9 +43,9 @@
                 @endif              
             </div>
             <div class="form-group {{ $errors->has('id_fl') ? ' has-error' : '' }}">
-                <label>Tip flux</label>
+                <label>Fluxurile de lucru ale pp existente</label>
                 <select name="id_fl" id="id_fl"  class="custom-select validate[required]" data-search="5">
-                    <option value="">Setare tip flux</option>
+                    <option value="">Setare flux de lucru</option>
                     @foreach ($tipuri_fluxuri as $index => $value)
                     <option <?php echo $index == $proces->id_fl ? 'selected="selected"' : ''; ?> value="{{ $index }}">{{ $value }}</option>
                     @endforeach

@@ -13,8 +13,4 @@ class TipMaterial extends Model
 
 	protected $table = 'tipuri_materiale';
 
-	public function actiuni()
-    {
-        return $this->hasMany('App\Models\ActiuniProductie\Actiune');
-    }
 }

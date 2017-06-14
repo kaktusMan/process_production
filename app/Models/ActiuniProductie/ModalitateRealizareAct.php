@@ -13,11 +13,6 @@ class ModalitateRealizareAct extends Model
 
 	protected $table = 'modalitati_realizare_act';
 
-    public function actiuniPr()
-    {
-        return $this->belongsTo('App\Models\ActiuniProductie\Actiune', 'id_actiune');
-    }
-
     public function tipuri_il()
     {
         return $this->hasMany('App\Models\InstrumenteDeLucru\TipIl');

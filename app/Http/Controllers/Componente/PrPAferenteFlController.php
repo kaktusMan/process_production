@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Validator;
 use App\Models\Componente\ProcesProductie;
-use App\Models\ActiuniProductie\Flux;
+use App\Models\Componente\FluxAferentPp;
 
 class PrPAferenteFlController extends Controller
 {
@@ -22,7 +22,7 @@ class PrPAferenteFlController extends Controller
         return view('instalatii_productie.procese_productie.add_edit', [
             'proces' => new ProcesProductie(),
             'form_title' => 'Creare proces de producție ale f.l',
-            'tipuri_fluxuri' => Flux::getOptionsArray(),
+            'tipuri_fluxuri' => FluxAferentPp::getOptionsArray(),
             'form_route' => route('procese-productie::store')
         ]);
     } 
@@ -56,7 +56,7 @@ class PrPAferenteFlController extends Controller
         return view('instalatii_productie.procese_productie.add_edit', [
             'proces' => $proces, 
             'form_title' => 'Editare proces de producție ale f.l',
-            'tipuri_fluxuri' => Flux::getOptionsArray(),
+            'tipuri_fluxuri' => FluxAferentPp::getOptionsArray(),
             'form_route' => route('procese-productie::update', ['id' => $proces->id])
         ]);
     }

@@ -27,4 +27,5 @@ class Instalatie extends Model
     {
         return $this->hasMany('App\Models\CaracteristiciOperare\NrSchimb');
     }
+   
 }

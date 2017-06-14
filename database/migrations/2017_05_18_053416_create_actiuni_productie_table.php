@@ -15,7 +15,6 @@ class CreateActiuniProductieTable extends Migration
     {
         Schema::create('actiuni_productie', function (Blueprint $t) {
             $t->increments('id')->unsigned();
-            $t->integer('tipuri_id')->unsigned()->default(0)->nullable()->comment('tipuri material pt realiz act');
             $t->string('nume');
             $t->timestamps();
             $t->softDeletes();   

@@ -12,14 +12,4 @@ class Actiune extends Model
     use OptionsArray;
 
 	protected $table = 'actiuni_productie';
-
-    public function modalitati()
-    {
-        return $this->hasMany('App\Models\ActiuniProductie\ModalitateRealizareAct');
-    }
-
-    public function tipuri()
-    {
-        return $this->belongsTo('App\Models\InstrumenteDeLucru\TipMaterial');
-    }
 }

@@ -21,21 +21,7 @@
                     <strong>{{ $errors->first('nume') }}</strong>
                 </span>
                 @endif
-            </div> 
-            <div class="form-group {{ $errors->has('tipuri_id') ? ' has-error' : '' }}">
-                <label>Tip flux</label>
-                <select name="tipuri_id" id="tipuri_id"  class="custom-select validate[required]" data-search="5">
-                    <option value="">Setare tip flux</option>
-                    @foreach ($tipuri_materiale as $index => $value)
-                    <option <?php echo $index == $actiuni->tipuri_id ? 'selected="selected"' : ''; ?> value="{{ $index }}">{{ $value }}</option>
-                    @endforeach
-                </select>
-                @if ($errors->has('tipuri_id'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('tipuri_id') }}</strong>
-                </span>
-                @endif
-            </div>
+            </div>  
         </div> 
     </div>
     <div>

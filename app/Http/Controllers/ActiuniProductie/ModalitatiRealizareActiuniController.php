@@ -6,13 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Validator;
 use App\Models\ActiuniProductie\ModalitateRealizareAct;
-use App\Models\ActiuniProductie\Actiune;
 
 class ModalitatiRealizareActiuniController extends Controller
 {   
     public function index(){ 
         return view('actiuni_de_productie.modalitati_realizare.index', [
-            'modalitati' => ModalitateRealizareAct::with('actiuniPr')->get()
+            'modalitati' => ModalitateRealizareAct::all()
         ]);
     }
 
@@ -20,7 +19,6 @@ class ModalitatiRealizareActiuniController extends Controller
 
         return view('actiuni_de_productie.modalitati_realizare.add_edit', [
             'modalitate' => new ModalitateRealizareAct(),
-            'tipuri_actiuni' => Actiune::getOptionsArray(),
             'form_title' => 'Creare modalitate de realizare a acțiunilor',
             'form_route' => route('modalitati::store')
         ]);
@@ -34,7 +32,6 @@ class ModalitatiRealizareActiuniController extends Controller
         $modalitate = new ModalitateRealizareAct();
 
         $modalitate->nume = $request->input('nume');
-        $modalitate->actiuniPr()->associate($request->input('id_actiune'));
 
         if ($modalitate->save()) 
         {   
@@ -52,7 +49,6 @@ class ModalitatiRealizareActiuniController extends Controller
 
         return view('actiuni_de_productie.modalitati_realizare.add_edit', [
             'modalitate' => $modalitate, 
-            'tipuri_actiuni' => Actiune::getOptionsArray(),
             'form_title' => 'Editare  modalitate de realizare a acțiunilor',
             'form_route' => route('modalitati::update', ['id' => $modalitate->id])
         ]);
@@ -66,7 +62,6 @@ class ModalitatiRealizareActiuniController extends Controller
         if (is_null($modalitate)) { return redirect(route('modalitati::list'))->with('alert-danger', 'Modalitatea nu exista'); }
 
         $modalitate->nume = $request->input('nume');
-        $modalitate->actiuniPr()->associate($request->input('id_actiune'));
 
         if ($modalitate->save()) 
         {   
